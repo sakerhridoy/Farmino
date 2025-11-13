@@ -59,13 +59,7 @@ Google Fonts – Poppins	Typography
 └── README.md
 
 ⚙️ Getting Started
-1️⃣ Clone this repository:
-git clone https://github.com/your-username/your-repo-name.git
-
-2️⃣ Navigate into the folder:
-cd your-repo-name
-
-3️⃣ Open the project:
+ Open the project:
 
 Just open index.html in your browser.
 

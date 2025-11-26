@@ -45,18 +45,6 @@ Tailwind CSS	Styling and responsive layout
 Font Awesome	Icons (Share, Like, Compare)
 JavaScript	Mobile menu functionality
 Google Fonts – Poppins	Typography
-📂 Project Structure
-/
-├── index.html
-├── images/
-│   ├── logo.png
-│   ├── bgimage01.png
-│   ├── dining.png
-│   ├── living.png
-│   ├── badroom.png
-│   ├── product images...
-│   └── setup images...
-└── README.md
 
 ⚙️ Getting Started
  Open the project:

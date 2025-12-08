@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Furniro - Modern Furniture Store</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#B88E2F',
+            secondary: '#333333',
+            'text-gray': '#898989',
+            'bg-light': '#F9F1E7',
+          },
+          fontFamily: {
+            'poppins': ['Poppins', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body class="font-poppins bg-[#ECECED]">
+  <!-- Navbar -->
+  <nav class="bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between gap-10 h-20">
+        <div class="flex-shrink-0 flex items-center">
+          <a href="#" class="flex items-center">
+            <img class="h-8 w-auto" src="data:image/png;base64,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" alt="Furniro">
+          </a>
+        </div>
+
+        <!-- Mobile menu button -->
+        <div class="flex items-center lg:hidden">
+          <button type="button"
+            class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary">
+            <span class="sr-only">Open menu</span>
+            <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Desktop menu -->
+        <div class="hidden lg:flex lg:items-center lg:justify-between lg:flex-1">
+          <div class="flex space-x-8">
+            <a href="#" class="text-primary font-medium">Home</a>
+            <a href="#" class="text-gray-500 hover:text-primary font-medium">Shop</a>
+            <a href="#" class="text-gray-500 hover:text-primary font-medium">About</a>
+            <a href="#" class="text-gray-500 hover:text-primary font-medium">Contact</a>
+          </div>
+
+          <div class="flex items-center space-x-6">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAFOSURBVHgB7VTLUcMwEH187rgEdQAdYG7coANMBUAFpIOYCmwqCB0EOkgHqIOkA1hZq9FGo1hKYh8y4zfzxtZqpbcr7QqYcOq42MP3hnhPLIgaI0IRl8Q/wV9ihRGgeHMpJIVfMTAaIVSKIBZsX8Me8WBY88ZVYC/gsyx71tewwdbOcI5+uOh1YN8IW5FYr4hXuYKavw+BXTGlTxZSgp/8NcUxhz0+878UYisMjLAlZMWqxNqWfRtnSGVocEd8hs/E3N8H2zX2xGWmX8s8GmeJ+RL2SbuGLxQNX6U/xG8ex1AwNz0+ncM7fA/msEH6PjuEGT7BNqnsrRVnojlKF/UtbPbS16x9E+NH9jF7fAVa3YSL2GQ3Q96zVWG7kudirkVQpYhMLnDY+1iLYKVt62mLCc5wGEr4LHci1hYvsHc5CmKCrihGF2xhe2rChF78A8CZZcdrIHUIAAAAAElFTkSuQmCC" alt="Account" class="h-6 w-6 cursor-pointer">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAFHSURBVHgBtZWNUcMwDIVfWQCPoA1gAzJCNyCbNEwAG5QNYIOUCQoTpExAmADkRq51aezYcfvdvUvOkfX8o9grxDGsivUg75ae9c3asT5RgE24Yf2w/iLas+q5ZKuJtkfWC/zId6wvNWrbfo9hdiRtr6wn1gEJbNQoWwxLFaNmdRLfKdNoB2fQIB1SRnb5TEpgg3wopf9WArZYTiU5bLGczcbAVxGhjBaB2azhN7qUCn5vTtxgKEfLB8pxZW5zGm1C8n5AOb3Kc6tNro42MbgMLs+vNnHreIdySEx60Qm7ScH6zqSWXO9TH4P1nYn769dTHyv42RCW4Q7XLhbUIuM0DRjMnhoGmce29HlWBkkrQcrIHZhVIG58c+YO8FgA46u2E42vZHe50RIjErP9hKE1esP5LBcZjRM4zcUVGaVCKLtps4wa+/wHjhl9pQ9wLxEAAAAASUVORK5CYII=" alt="Search" class="h-6 w-6 cursor-pointer">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAYCAYAAADkgu3FAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAFUSURBVHgBtVYLdcMwDLwVQSB4CFoIhjAIYbAwSBhsDNIh2Bg0DFoGG4N0CDbrPamWXbt1Wvfeu8RRZJ/8kZInnKNx3DCpfXCcHI9Ig3xeHA0/T8yLeHWcHf8S7BMCfcb/27HLiYzKcef47jhwWw9gmPvIf+A+2j7GIj2/oOhsIgjDIiKm2yn/Fn6mnR5EIkh1EjRRtHu25WBV8I2ok+EL10EdZEZNgb8se7eCn8VU0JFO3jPzWOD/wff1KhrkYdBCJUuxFDLmLwkd+MGgPtZ8/6GLhT8dtSFpsBGDnHmLerDwuXbCAJ/htSA512ojbdpZJt+BFmHJCtDB75XB7TDwe9PmnD5RVl5yaJTIWOq4VEzXwuSSxTA3iC0WSYld67jEt2iANuFDn/D5HhEBLckW4RfTsP1N2beoVCvp6OvIpT2jTt4FMAj/H3Z4TCE+wUIVyVL8AzPbiaP4QL3AAAAAAElFTkSuQmCC" alt="Favorites" class="h-6 w-6 cursor-pointer">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAXCAYAAAAV1F8QAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAFOSURBVHgBrZbtUQMhEIbfc/xvrEBKiBWIHcQKvA60A+1AOzBWEDtIrECtQKwgWsHJDrsJuQMC3D0zO8vAArcfwDVw3FuZ4ZClFYMJWVjpAvKNCWlYt1aU13+HoYcl/LJI+7qJGK7gPPUn+CiUcR4boJx1rMdAa2ypcRIxMKw16pmz/kxttGF9hXoU66/URpQXA1cQF6hDPDKpjYh31peoQ6KRDN3OAPV5Ur11omi4qlmjnBnP/ZCOHI/mKEfm/EjHacJYCkLB3RR/yOcgPznQfdeNkIUslPLoAc4bY+UV5VBE3o4ZKbirg76qxQTELtUXb4MNxnMTG6Cy7CYSioxCAhp8Dkx84jGRVcDm0RvPetfWPJHOhUb4AIv3CvvXelAEqaoj5NG7zbBprZxxe4tCNIZh0T2b/j9HMCcNjqOwf2mXCJ92Cm3Lbcqr6Rv8A0gaeC9gRU7dAAAAAElFTkSuQmCC" alt="Cart" class="h-6 w-6 cursor-pointer">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div class="lg:hidden hidden" id="mobile-menu">
+      <div class="px-2 pt-2 pb-3 space-y-1">
+        <a href="index.html" class="block px-3 py-2 text-base font-medium text-primary">Home</a>
+        <a href="shop.html" class="block px-3 py-2 text-base font-medium text-gray-500 hover:text-primary">Shop</a>
+        <a href="#" class="block px-3 py-2 text-base font-medium text-gray-500 hover:text-primary">About</a>
+        <a href="#" class="block px-3 py-2 text-base font-medium text-gray-500 hover:text-primary">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="relative w-full">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="relative">
+        <img src="/assets/bgimage01-BR59kcmq.png" alt="Hero" class="w-full h-auto object-cover">
+
+        <div
+          class="absolute top-1/2 right-0 transform -translate-y-1/2 lg:right-32 bg-[rgba(255,243,227,0.30)] p-8 lg:p-12 max-w-lg">
+          <span class="font-poppins text-sm lg:text-base font-semibold text-secondary">New Arrival</span>
+          <h1 class="font-poppins text-3xl lg:text-5xl font-bold text-primary mt-4">Discover Our New Collection</h1>
+          <p class="font-poppins text-base lg:text-lg text-secondary mt-4 mb-8">Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.</p>
+          <a href="#"
+            class="inline-block bg-primary text-white font-poppins font-semibold px-8 py-4 transition-all hover:bg-white hover:text-primary hover:border hover:border-primary">BUY
+            NOW</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Browse Range Section -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-secondary mb-4">Browse The Range</h2>
+        <p class="text-text-gray">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="text-center">
+          <img src="/assets/dining-DeH3lDlm.png" alt="Dining" class="w-full h-auto mb-4">
+          <p class="text-xl font-semibold text-secondary">Dining</p>
+        </div>
+        <div class="text-center">
+          <img src="/assets/living-B4cswmkF.png" alt="Living" class="w-full h-auto mb-4">
+          <p class="text-xl font-semibold text-secondary">Living</p>
+        </div>
+        <div class="text-center">
+          <img src="/assets/badroom-qhrmFu3a.png" alt="Bedroom" class="w-full h-auto mb-4">
+          <p class="text-xl font-semibold text-secondary">Bedroom</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h3 class="text-4xl font-bold text-secondary text-center mb-12">Our Products</h3>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Syltherine -->
+        <div class="group relative bg-[#F4F5F7]">
+          <div class="relative">
+            <img src="/assets/Syltherine-xLj6hRiT.png" alt="Syltherine" class="w-full h-auto">
+            <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity">
+              <div class="absolute inset-0 flex flex-col items-center justify-center">
+                <button class="bg-white text-primary font-semibold py-3 px-8 mb-6">Add to cart</button>
+                <div class="flex space-x-4 text-white">
+                  <button class="flex items-center"><i class="fas fa-share-alt mr-2"></i> Share</button>
+                  <button class="flex items-center"><i class="fas fa-exchange-alt mr-2"></i> Compare</button>
+                  <button class="flex items-center"><i class="far fa-heart mr-2"></i> Like</button>
+                </div>
+              </div>
+            </div>
+            <div class="absolute top-6 right-6 bg-[#E97171] text-white rounded-full p-3">
+              <span class="text-sm font-medium">-30%</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <h6 class="text-xl font-semibold text-secondary mb-2">Syltherine</h6>
+            <p class="text-text-gray mb-2">Stylish cafe chair</p>
+            <div class="flex items-center space-x-4">
+              <span class="text-lg font-semibold text-secondary">Rp 2.500.000</span>
+              <span class="text-sm text-text-gray line-through">Rp 3.500.000</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Leviosa -->
+        <div class="group relative bg-[#F4F5F7]">
+          <div class="relative">
+            <img src="/assets/leviosa-DqqOuquU.png" alt="Leviosa" class="w-full h-auto">
+            <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity">
+              <div class="absolute inset-0 flex flex-col items-center justify-center">
+                <button class="bg-white text-primary font-semibold py-3 px-8 mb-6">Add to cart</button>
+                <div class="flex space-x-4 text-white">
+                  <button class="flex items-center"><i class="fas fa-share-alt mr-2"></i> Share</button>
+                  <button class="flex items-center"><i class="fas fa-exchange-alt mr-2"></i> Compare</button>
+                  <button class="flex items-center"><i class="far fa-heart mr-2"></i> Like</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="p-6">
+            <h6 class="text-xl font-semibold text-secondary mb-2">Leviosa</h6>
+            <p class="text-text-gray mb-2">Stylish cafe chair</p>
+            <div class="flex items-center space-x-4">
+              <span class="text-lg font-semibold text-secondary">Rp 2.500.000</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lolito -->
+        <div class="group relative bg-[#F4F5F7]">
+          <div class="relative">
+            <img src="/assets/lolito-DJtx6YJ3.png" alt="Lolito" class="w-full h-auto">
+            <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity">
+              <div class="absolute inset-0 flex flex-col items-center justify-center">
+                <button class="bg-white text-primary font-semibold py-3 px-8 mb-6">Add to cart</button>
+                <div class="flex space-x-4 text-white">
+                  <button class="flex items-center"><i class="fas fa-share-alt mr-2"></i> Share</button>
+                  <button class="flex items-center"><i class="fas fa-exchange-alt mr-2"></i> Compare</button>
+                  <button class="flex items-center"><i class="far fa-heart mr-2"></i> Like</button>
+                </div>
+              </div>
+            </div>
+            <div class="absolute top-6 right-6 bg-[#E97171] text-white rounded-full p-3">
+              <span class="text-sm font-medium">-50%</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <h6 class="text-xl font-semibold text-secondary mb-2">Lolito</h6>
+            <p class="text-text-gray mb-2">Luxury big sofa</p>
+            <div class="flex items-center space-x-4">
+              <span class="text-lg font-semibold text-secondary">Rp 7.000.000</span>
+              <span class="text-sm text-text-gray line-through">Rp 14.000.000</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Respira -->
+        <div class="group relative bg-[#F4F5F7]">
+          <div class="relative">
+            <img src="/assets/Respira-Cg9t6OG-.png" alt="Respira" class="w-full h-auto">
+            <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity">
+              <div class="absolute inset-0 flex flex-col items-center justify-center">
+                <button class="bg-white text-primary font-semibold py-3 px-8 mb-6">Add to cart</button>
+                <div class="flex space-x-4 text-white">
+                  <button class="flex items-center"><i class="fas fa-share-alt mr-2"></i> Share</button>
+                  <button class="flex items-center"><i class="fas fa-exchange-alt mr-2"></i> Compare</button>
+                  <button class="flex items-center"><i class="far fa-heart mr-2"></i> Like</button>
+                </div>
+              </div>
+            </div>
+            <div class="absolute top-6 right-6 bg-[#2EC1AC] text-white rounded-full p-3">
+              <span class="text-sm font-medium">New</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <h6 class="text-xl font-semibold text-secondary mb-2">Respira</h6>
+            <p class="text-text-gray mb-2">Outdoor bar table and stool</p>
+            <div class="flex items-center space-x-4">
+              <span class="text-lg font-semibold text-secondary">Rp 500.000</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Grifo -->
+        <div class="group relative bg-[#F4F5F7]">
+          <div class="relative">
+            <img src="/assets/Grifo-CUrwc48Y.png" alt="Grifo" class="w-full h-auto">
+            <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity">
+              <div class="absolute inset-0 flex flex-col items-center justify-center">
+                <button class="bg-white text-primary font-semibold py-3 px-8 mb-6">Add to cart</button>
+                <div class="flex space-x-4 text-white">
+                  <button class="flex items-center"><i class="fas fa-share-alt mr-2"></i> Share</button>
+                  <button class="flex items-center"><i class="fas fa-exchange-alt mr-2"></i> Compare</button>
+                  <button class="flex items-center"><i class="far fa-heart mr-2"></i> Like</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="p-6">
+            <h6 class="text-xl font-semibold text-secondary mb-2">Grifo</h6>
+            <p class="text-text-gray mb-2">Night lamp</p>
+            <div class="flex items-center space-x-4">
+              <span class="text-lg font-semibold text-secondary">Rp 1.500.000</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Muggo -->
+        <div class="group relative bg-[#F4F5F7]">
+          <div class="relative">
+            <img src="/assets/Muggo-C5v9fv82.png" alt="Muggo" class="w-full h-auto">
+            <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity">
+              <div class="absolute inset-0 flex flex-col items-center justify-center">
+                <button class="bg-white text-primary font-semibold py-3 px-8 mb-6">Add to cart</button>
+                <div class="flex space-x-4 text-white">
+                  <button class="flex items-center"><i class="fas fa-share-alt mr-2"></i> Share</button>
+                  <button class="flex items-center"><i class="fas fa-exchange-alt mr-2"></i> Compare</button>
+                  <button class="flex items-center"><i class="far fa-heart mr-2"></i> Like</button>
+                </div>
+              </div>
+            </div>
+            <div class="absolute top-6 right-6 bg-[#2EC1AC] text-white rounded-full p-3">
+              <span class="text-sm font-medium">New</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <h6 class="text-xl font-semibold text-secondary mb-2">Muggo</h6>
+            <p class="text-text-gray mb-2">Small mug</p>
+            <div class="flex items-center space-x-4">
+              <span class="text-lg font-semibold text-secondary">Rp 150.000</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pingky -->
+        <div class="group relative bg-[#F4F5F7]">
+          <div class="relative">
+            <img src="/assets/Pingky-D9XmE10P.png" alt="Pingky" class="w-full h-auto">
+            <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity">
+              <div class="absolute inset-0 flex flex-col items-center justify-center">
+                <button class="bg-white text-primary font-semibold py-3 px-8 mb-6">Add to cart</button>
+                <div class="flex space-x-4 text-white">
+                  <button class="flex items-center"><i class="fas fa-share-alt mr-2"></i> Share</button>
+                  <button class="flex items-center"><i class="fas fa-exchange-alt mr-2"></i> Compare</button>
+                  <button class="flex items-center"><i class="far fa-heart mr-2"></i> Like</button>
+                </div>
+              </div>
+            </div>
+            <div class="absolute top-6 right-6 bg-[#E97171] text-white rounded-full p-3">
+              <span class="text-sm font-medium">-50%</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <h6 class="text-xl font-semibold text-secondary mb-2">Pingky</h6>
+            <p class="text-text-gray mb-2">Cute bed set</p>
+            <div class="flex items-center space-x-4">
+              <span class="text-lg font-semibold text-secondary">Rp 7.000.000</span>
+              <span class="text-sm text-text-gray line-through">Rp 14.000.000</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Potty -->
+        <div class="group relative bg-[#F4F5F7]">
+          <div class="relative">
+            <img src="/assets/Potty-rIcYNPDJ.png" alt="Potty" class="w-full h-auto">
+            <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity">
+              <div class="absolute inset-0 flex flex-col items-center justify-center">
+                <button class="bg-white text-primary font-semibold py-3 px-8 mb-6">Add to cart</button>
+                <div class="flex space-x-4 text-white">
+                  <button class="flex items-center"><i class="fas fa-share-alt mr-2"></i> Share</button>
+                  <button class="flex items-center"><i class="fas fa-exchange-alt mr-2"></i> Compare</button>
+                  <button class="flex items-center"><i class="far fa-heart mr-2"></i> Like</button>
+                </div>
+              </div>
+            </div>
+            <div class="absolute top-6 right-6 bg-[#2EC1AC] text-white rounded-full p-3">
+              <span class="text-sm font-medium">New</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <h6 class="text-xl font-semibold text-secondary mb-2">Potty</h6>
+            <p class="text-text-gray mb-2">Minimalist flower pot</p>
+            <div class="flex items-center space-x-4">
+              <span class="text-lg font-semibold text-secondary">Rp 500.000</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-12">
+        <button
+          class="border border-primary text-primary hover:bg-primary hover:text-white transition-colors px-16 py-3 font-semibold">
+          Show More
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Inspiration Section -->
+  <section class="py-16 bg-[#FCF8F3]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col lg:flex-row gap-12">
+        <div class="lg:w-2/5">
+          <h3 class="text-4xl font-bold text-secondary mb-4">50+ Beautiful rooms inspiration</h3>
+          <p class="text-text-gray mb-8">Our designer already made a lot of beautiful prototipe of rooms that inspire
+            you</p>
+          <a href="#"
+            class="inline-block bg-primary text-white font-semibold px-8 py-4 hover:bg-white hover:text-primary hover:border hover:border-primary transition-all">
+            Explore More
+          </a>
+        </div>
+
+        <div class="lg:w-3/5 relative">
+          <div class="flex gap-6 overflow-x-auto pb-8">
+            <div class="relative flex-none w-80">
+              <img src="/assets/setup01-B9uwxpqq.png" alt="Bedroom" class="w-full h-auto">
+              <div class="absolute bottom-8 left-8 bg-white p-6">
+                <p class="flex items-center text-text-gray mb-2">
+                  01 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAACCAYAAACpDacGAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAaSURBVHgBvcABAQAAAMEwJH0U0bUwA9VJdDRgnQGk8kUE6QAAAABJRU5ErkJggg==" alt="line" class="mx-2"> Bed Room
+                </p>
+                <h6 class="text-2xl font-semibold text-secondary">Inner Peace</h6>
+              </div>
+              <button class="absolute bottom-8 right-8 bg-primary p-4">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAABjSURBVHgB7dTBDYAgDAXQX+MAjuYmsIGM4Kg6QW1jD1w8FTz9l5CGQPqTHgoQfVHVYufALNa86mtqSGNIOmTtPhQrO/I86BaR0y9L9yDIu6JuGM1HEyNqGI3N/28eAb6LKogeNoyFCWbdsDQAAAAASUVORK5CYII=" alt="right sign">
+              </button>
+            </div>
+
+            <div class="relative flex-none w-80">
+              <img src="/assets/setup02-Bb0KpxPK.png" alt="Living Room" class="w-full h-auto">
+            </div>
+
+            <div class="relative flex-none w-80">
+              <img src="/assets/setup03-CB6thV25.png" alt="Setup" class="w-full h-auto">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Share Section -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-8">
+        <p class="text-lg text-text-gray">Share your setup with</p>
+        <h6 class="text-3xl font-bold text-secondary">#FuniroFurniture</h6>
+      </div>
+      <div class="w-full">
+        <img src="/assets/furniture-img-CDMcXkK2.png" alt="Furniture Gallery" class="w-full h-auto">
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div>
+          <h6 class="text-2xl font-bold text-black mb-4">Funiro.</h6>
+          <p class="text-text-gray">
+            400 University Drive Suite 200 Coral Gables,
+            <br> FL 33134 USA
+          </p>
+        </div>
+
+        <div>
+          <p class="text-text-gray mb-8">Links</p>
+          <ul class="space-y-6">
+            <li><a href="#" class="text-black hover:text-primary">Home</a></li>
+            <li><a href="#" class="text-black hover:text-primary">Shop</a></li>
+            <li><a href="#" class="text-black hover:text-primary">About</a></li>
+            <li><a href="#" class="text-black hover:text-primary">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="text-text-gray mb-8">Help</p>
+          <ul class="space-y-6">
+            <li><a href="#" class="text-black hover:text-primary">Payment Options</a></li>
+            <li><a href="#" class="text-black hover:text-primary">Returns</a></li>
+            <li><a href="#" class="text-black hover:text-primary">Privacy Policies</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="text-text-gray mb-8">Newsletter</p>
+          <div class="border-b border-black pb-2">
+            <input type="email" placeholder="Enter Your Email Address" class="w-full bg-transparent focus:outline-none">
+          </div>
+          <button class="text-black font-medium mt-4 border-b border-black pb-1">
+            SUBSCRIBE
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-t border-gray-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <p class="text-black">2023 furino. All rights reverved</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Menu Script -->
+  <script>
+    const mobileMenuButton = document.querySelector('button[aria-controls="mobile-menu"]');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileMenuButton.addEventListener('click', () => {
+      const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+      mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+</body>
+
+</html>

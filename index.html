@@ -5,24 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Furniro - Modern Furniture Store</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary: '#B88E2F',
-            secondary: '#333333',
-            'text-gray': '#898989',
-            'bg-light': '#F9F1E7',
-          },
-          fontFamily: {
-            'poppins': ['Poppins', 'sans-serif'],
-          },
-        }
-      }
-    }
-  </script>
+  <link rel="stylesheet" href="css/tailwind.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
@@ -40,11 +23,17 @@
 
         <!-- Mobile menu button -->
         <div class="flex items-center lg:hidden">
-          <button type="button"
-            class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary">
+          <button type="button" id="mobile-menu-button"
+            class="inline-flex items-center justify-center p-2 rounded-md text-secondary hover:text-primary hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary"
+            aria-controls="mobile-menu" aria-expanded="false">
             <span class="sr-only">Open menu</span>
-            <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <!-- Icon when menu is closed -->
+            <svg class="block h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" id="menu-icon-closed">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <!-- Icon when menu is open -->
+            <svg class="hidden h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" id="menu-icon-open">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
         </div>
@@ -86,13 +75,16 @@
         <img src="images/bgimage01.png" alt="Hero" class="w-full h-auto object-cover">
 
         <div
-          class="absolute top-1/2 right-0 transform -translate-y-1/2 lg:right-32 bg-[rgba(255,243,227,0.30)] p-8 lg:p-12 max-w-lg">
-          <span class="font-poppins text-sm lg:text-base font-semibold text-secondary">New Arrival</span>
-          <h1 class="font-poppins text-3xl lg:text-5xl font-bold text-primary mt-4">Discover Our New Collection</h1>
-          <p class="font-poppins text-base lg:text-lg text-secondary mt-4 mb-8">Lorem ipsum dolor sit amet, consectetur
+          class="absolute top-1/2 left-1/2 lg:left-auto lg:right-32 transform -translate-x-1/2 -translate-y-1/2 lg:translate-x-0 bg-[#F9F1E7]/90 lg:bg-[#F9F1E7]/80 p-6 sm:p-8 lg:p-12 w-[90%] sm:w-auto max-w-lg">
+          <span class="font-poppins text-xs sm:text-sm lg:text-base font-semibold text-secondary tracking-widest">New
+            Arrival</span>
+          <h1 class="font-poppins text-2xl sm:text-3xl lg:text-5xl font-bold text-primary mt-2 sm:mt-4 leading-tight">
+            Discover Our <br class="hidden sm:block"> New Collection</h1>
+          <p class="font-poppins text-sm sm:text-base lg:text-lg text-secondary mt-2 sm:mt-4 mb-6 sm:mb-8">Lorem ipsum
+            dolor sit amet, consectetur
             adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.</p>
           <a href="#"
-            class="inline-block bg-primary text-white font-poppins font-semibold px-8 py-4 transition-all hover:bg-white hover:text-primary hover:border hover:border-primary">BUY
+            class="inline-block bg-primary text-white font-poppins font-semibold px-6 sm:px-12 py-3 sm:py-6 transition-all hover:bg-white hover:text-primary hover:border hover:border-primary uppercase text-sm tracking-wider">BUY
             NOW</a>
         </div>
       </div>
@@ -117,7 +109,7 @@
           <p class="text-xl font-semibold text-secondary">Living</p>
         </div>
         <div class="text-center">
-          <img src="images/badroom.png" alt="Bedroom" class="w-full h-auto mb-4">
+          <img src="images/bedroom.png" alt="Bedroom" class="w-full h-auto mb-4">
           <p class="text-xl font-semibold text-secondary">Bedroom</p>
         </div>
       </div>
@@ -144,7 +136,8 @@
                 </div>
               </div>
             </div>
-            <div class="absolute top-6 right-6 bg-[#E97171] text-white rounded-full p-3">
+            <div
+              class="absolute top-6 right-6 bg-[#E97171] text-white rounded-full w-12 h-12 flex items-center justify-center">
               <span class="text-sm font-medium">-30%</span>
             </div>
           </div>
@@ -196,7 +189,8 @@
                 </div>
               </div>
             </div>
-            <div class="absolute top-6 right-6 bg-[#E97171] text-white rounded-full p-3">
+            <div
+              class="absolute top-6 right-6 bg-[#E97171] text-white rounded-full w-12 h-12 flex items-center justify-center">
               <span class="text-sm font-medium">-50%</span>
             </div>
           </div>
@@ -224,7 +218,8 @@
                 </div>
               </div>
             </div>
-            <div class="absolute top-6 right-6 bg-[#2EC1AC] text-white rounded-full p-3">
+            <div
+              class="absolute top-6 right-6 bg-[#2EC1AC] text-white rounded-full w-12 h-12 flex items-center justify-center">
               <span class="text-sm font-medium">New</span>
             </div>
           </div>
@@ -275,7 +270,8 @@
                 </div>
               </div>
             </div>
-            <div class="absolute top-6 right-6 bg-[#2EC1AC] text-white rounded-full p-3">
+            <div
+              class="absolute top-6 right-6 bg-[#2EC1AC] text-white rounded-full w-12 h-12 flex items-center justify-center">
               <span class="text-sm font-medium">New</span>
             </div>
           </div>
@@ -302,7 +298,8 @@
                 </div>
               </div>
             </div>
-            <div class="absolute top-6 right-6 bg-[#E97171] text-white rounded-full p-3">
+            <div
+              class="absolute top-6 right-6 bg-[#E97171] text-white rounded-full w-12 h-12 flex items-center justify-center">
               <span class="text-sm font-medium">-50%</span>
             </div>
           </div>
@@ -330,7 +327,8 @@
                 </div>
               </div>
             </div>
-            <div class="absolute top-6 right-6 bg-[#2EC1AC] text-white rounded-full p-3">
+            <div
+              class="absolute top-6 right-6 bg-[#2EC1AC] text-white rounded-full w-12 h-12 flex items-center justify-center">
               <span class="text-sm font-medium">New</span>
             </div>
           </div>
@@ -452,20 +450,26 @@
 
     <div class="border-t border-gray-200">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <p class="text-black">2023 furino. All rights reverved</p>
+        <p class="text-black">2023 furino. All rights reserved</p>
       </div>
     </div>
   </footer>
 
   <!-- Mobile Menu Script -->
   <script>
-    const mobileMenuButton = document.querySelector('button[aria-controls="mobile-menu"]');
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
+    const menuIconClosed = document.getElementById('menu-icon-closed');
+    const menuIconOpen = document.getElementById('menu-icon-open');
 
     mobileMenuButton.addEventListener('click', () => {
       const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
       mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
       mobileMenu.classList.toggle('hidden');
+
+      // Toggle icons
+      menuIconClosed.classList.toggle('hidden');
+      menuIconOpen.classList.toggle('hidden');
     });
   </script>
 </body>

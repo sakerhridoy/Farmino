@@ -1,3 +1,17 @@
 @import "tailwindcss";
 
-/* Custom styles can go here */
+@theme {
+  --color-primary: #B88E2F;
+  --color-secondary: #333333;
+  --color-text-gray: #898989;
+  --color-bg-light: #F9F1E7;
+  
+  --font-poppins: "Poppins", sans-serif;
+}
+
+/* Custom styles */
+@layer base {
+  body {
+    @apply font-poppins;
+  }
+}

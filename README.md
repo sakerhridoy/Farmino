@@ -1,4 +1,4 @@
-Furniro – Modern Furniture Store Website
+#### Furniro – Modern Furniture Store Website
 
 A fully responsive, modern UI furniture store landing page built using HTML, Tailwind CSS, and Font Awesome.
 This project showcases a clean layout, smooth hover effects, product cards, and a stylish inspiration section.
